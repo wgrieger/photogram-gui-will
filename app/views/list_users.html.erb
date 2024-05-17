@@ -14,8 +14,13 @@
 
 
 <!-- Enter form here -->
+<form action="/add_user" method="post">
+  <label for="username"> Username </label>
+  <input id="username" type="text" name="username_input" placeholder="Enter a username...">
+<button> Add user </button>
+</form>
 
-
+<hr> 
 <!--start table here-->
 
 <table border="1px">
@@ -23,13 +28,23 @@
     <tr>
       <th> ID </th>
       <th> Username </th>
-      <th> </th>
+      <th></th>
     </tr>
    <%@users_all.each do |user|%>
    <tr>
+
     <td>
-      <%user.id%>
+      <%=user.id%>
     </td>
+
+    <td>
+      <%=user.username%>
+    </td>
+
+    <td>
+    <a href="/user/<%=user.username%>"> Show details </a>
+    </td>
+
     </tr>
     <%end%>
   </tbody>
