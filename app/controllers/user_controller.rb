@@ -7,6 +7,10 @@ class UserController <ApplicationController
 
   def add_user
     new_username= params.fetch("username_input")
+    
+    u= User.new
+    u.username= new_username
+    u.save
 
     redirect_to("/users/#{new_username}")
   end
