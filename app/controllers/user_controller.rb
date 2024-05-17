@@ -12,7 +12,10 @@ class UserController <ApplicationController
   end
  
   def user_details
+    @user= params.fetch("username")
+
     render({:template=> "user_details"})
   end
+
 
 end
