@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
 get("/", {:controller=> "user", :action => "list_users"})
 
+post("/add_user", {:controller => "user", :action=> "add_user"})
+
 get("/users", {:controller=> "user", :action => "list_users"})
+
+get("/users/:username", {:controller=> "user", :action => "user_details"})
 
 get("/photos", {:controller=> "main", :action => "photos"})
 
