@@ -1,1 +1,17 @@
-<p> <%=@user%>
+<ul>
+  <li><a href="/users"> Users </a></li>
+  <li><a href="/photos"> Photos </a></li>
+</ul>
+
+
+
+<h1> <%=@user.username%> </h1>
+
+<p>ID</p>
+<p> <%=@user.id%></p>
+
+<p> Edit user</p>
+<form action="/edit_user" method="post">
+  <label name="username"> Username </label>
+  <input id="username" name="update_username" value="<%=@user.username%>">
+  <button> Update </button>

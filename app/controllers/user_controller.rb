@@ -16,7 +16,9 @@ class UserController <ApplicationController
   end
  
   def user_details
-    @user= params.fetch("username")
+    user= params.fetch("username")
+    @user=User.where(:username => user).first
+
 
     render({:template=> "user_details"})
   end
