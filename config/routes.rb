@@ -4,6 +4,9 @@ get("/", {:controller=> "user", :action => "list_users"})
 
 post("/add_user", {:controller => "user", :action=> "add_user"})
 
+post("/:username/update_user", {:controller => "user", :action=> "update_user"})
+
+
 get("/users", {:controller=> "user", :action => "list_users"})
 
 get("/users/:username", {:controller=> "user", :action => "user_details"})

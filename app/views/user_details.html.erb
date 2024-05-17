@@ -11,7 +11,8 @@
 <p> <%=@user.id%></p>
 
 <p> Edit user</p>
-<form action="/edit_user" method="post">
+<form action="/<%=@user.username%>/update_user" method="post">
   <label name="username"> Username </label>
   <input id="username" name="update_username" value="<%=@user.username%>">
   <button> Update </button>
+</form>
