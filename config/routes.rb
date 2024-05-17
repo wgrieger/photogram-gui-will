@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-get("/", {:controller=> "main", :action => "users"})
+get("/", {:controller=> "user", :action => "list_users"})
 
-get("/users", {:controller=> "main", :action => "users"})
+get("/users", {:controller=> "user", :action => "list_users"})
 
 get("/photos", {:controller=> "main", :action => "photos"})
 

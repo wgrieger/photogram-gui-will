@@ -6,7 +6,31 @@
 
 <h1> List of Users </h1>
 
+<!--Experiment Space-->
+
+
+<!-- Exit experiment-->
+
+
+
 <!-- Enter form here -->
 
 
 <!--start table here-->
+
+<table border="1px">
+  <tbody>
+    <tr>
+      <th> ID </th>
+      <th> Username </th>
+      <th> </th>
+    </tr>
+   <%@users_all.each do |user|%>
+   <tr>
+    <td>
+      <%user.id%>
+    </td>
+    </tr>
+    <%end%>
+  </tbody>
+ </table>
