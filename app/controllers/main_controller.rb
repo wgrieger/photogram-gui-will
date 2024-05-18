@@ -40,8 +40,7 @@ class MainController <ApplicationController
 
     @owner=User.where(:id=>@find_photo.owner_id).first
 
-    render({:template=> "photo_details"})
-
+    redirect_to("/photos/#{@photo_id}")
   end
 
   def delete_img
