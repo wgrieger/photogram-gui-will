@@ -52,7 +52,7 @@ class MainController <ApplicationController
 
     find_image.save
 
-  render({:template=>"list_photos"})
+  redirect_to("/photos")
   end
 
   def add_comment
