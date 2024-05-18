@@ -54,7 +54,7 @@ class MainController <ApplicationController
   end
 
   def add_comment
-    @photo_id=params.fetch("id")
+    @photo_id=params.fetch("photoid")
     @new_comment=params.fetch("comment")
     @author=params.fetch("authorid")
 
@@ -71,7 +71,9 @@ class MainController <ApplicationController
     x.author_id=@author.to_i
     x.save
 
-    redirect_to("https://effective-goldfish-v6p5479qjqq936qpv-3000.app.github.dev/photos/#{@photo_id}", { :allow_other_host => true })
+    render({:template=>"photo_details"})
+
+    #redirect_to("https://#effective-goldfish-v6p5479qjqq936qpv-3000.app.github.#dev/photos/#{@photo_id}", { :allow_other_host => true })
 
   end
 
