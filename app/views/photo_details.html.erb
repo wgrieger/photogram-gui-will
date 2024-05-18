@@ -18,10 +18,12 @@
 <p><%=@find_photo.created_at%></p>
 
 <p>Edit photo</p>
-  <form action="/photos/<%=@find_photo.id%>/update_photo">
+  <form action="/photos/<%=@find_photo.id%>/update_photo" method="POST">
   <label id="edit_photo">Image</label>
   <input id="edit_photo" name="new_link" value="<%=@find_photo.image%>">
   <label id="caption_edit">Caption</label>
   <input id="caption_edit" name="new_caption" value="<%=@find_photo.caption%>">
   <button>Update photo</button>
   </form>
+
+<h2> Comments </h2>

@@ -15,4 +15,7 @@ get("/photos", {:controller=> "main", :action => "photos"})
 
 get("/photos/:id", {:controller=> "main", :action => "photo_details"})
 
+post("/photos/:id/update_photo", {:controller=> "main", :action => "photo_update"})
+
+
 end
