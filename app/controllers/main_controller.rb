@@ -1,6 +1,9 @@
 class MainController <ApplicationController
   
   def photos
+    @photos_all=Photo.all
+
+    
     render({:template=>"list_photos"})
   end
 
@@ -74,6 +77,24 @@ class MainController <ApplicationController
     render({:template=>"photo_details"})
 
     #redirect_to("https://#effective-goldfish-v6p5479qjqq936qpv-3000.app.github.#dev/photos/#{@photo_id}", { :allow_other_host => true })
+
+  end
+
+  def new_photo
+  image_url=params.fetch("imagesrc")
+  @caption=params.fetch("caption")
+  owner=params.fetch("owner")
+
+  x=Photo.new
+  x.image=image_url
+  x.caption=@caption
+  x.owner=owner
+  x.save
+
+  @newphoto=Photo.where(:caption=> @caption).first
+
+  redirect_to("/photos/#{@newphoto.id}")
+
 
   end
 

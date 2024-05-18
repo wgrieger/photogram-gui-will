@@ -13,7 +13,7 @@
   <textarea id="Caption" name="caption" type="text" placeholder="Enter a caption for the photo..."></textarea>
 
   <label id="owner">Owner ID</label>
-  <input id="owner" name="owner" type="text" placeholder="Enter an ID of a User">
+  <input id="owner" name="owner" type="integer" placeholder="Enter an ID of a User">
 
   <button> Add photo </button>
 
@@ -32,20 +32,26 @@
       <th>Posted</th>
       <th></th>
     </tr>
-    
-   <%@users_all.each do |user|%>
+
+   <%@photos_all.each do |photo|%>
    <tr>
 
     <td>
-      <%=user.id%>
+      <img src="<%=photo.image%>">
     </td>
 
     <td>
-      <%=user.username%>
+      <%=photo.caption%>
     </td>
 
     <td>
-    <a href="/users/<%=user.username%>"> Show details </a>
+      <%=User.where(:id=>photo.owner_id).first.username%>
+    </td>
+
+    <td>
+      <%=photo.created_at%>
+    <td>
+    <a href="/photos/<%=photo.id%>"> Show details </a>
     </td>
 
     </tr>

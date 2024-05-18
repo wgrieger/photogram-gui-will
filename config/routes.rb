@@ -21,4 +21,6 @@ get("/photos/:id/delete_photo", {:controller=> "main", :action => "delete_img"})
 
 post("/photos/:id/new_comment", {:controller=> "main", :action=> "add_comment"})
 
+post("/photos/new_photo", {:controller=> "main", :action=> "new_photo"})
+
 end
