@@ -5,8 +5,15 @@ class MainController <ApplicationController
   end
 
   def photo_details 
-    photo_id=params.fetch("id")
+    @photo_id=params.fetch("id")
+
+    @find_photo=Photo.where(:id => @photo_id).first
+
+    @owner=User.where(:id=>@find_photo.owner_id).first
+
     render({:template => "photo_details"})
+
+
   end
   
 end 
