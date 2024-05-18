@@ -19,7 +19,7 @@ class UserController <ApplicationController
     user= params.fetch("username")
     @user=User.where(:username => user).first
     
-
+    @user_photos=Photo.where(:owner_id=>@user.id)
     @user_photos_count=Photo.where(:owner_id=>@user.id).count
 
     render({:template=> "user_details"})

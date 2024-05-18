@@ -18,3 +18,42 @@
 </form>
 
 <h2> Own photos (<%=@user_photos_count%>)</h2>
+
+<!--start table here-->
+
+<table border="1px">
+  <tbody>
+    <tr>
+      <th> Image </th>
+      <th> Owner </th>
+      <th> Caption </th>
+      <th> Posted </th>
+      <th></th>
+    </tr>
+   <%@user_photos.each do |photo|%>
+   <tr>
+
+    <td>
+      <img src="<%=photo.image%>">
+    </td>
+
+    <td>
+      <%=@user.username%>
+    </td>
+
+    <td>
+      <%=photo.caption%>
+    </td>
+
+    <td>
+      <%=photo.created_at%>
+      </td>
+
+    <td>
+    <a href="/photos/<%=photo.id%>"> Show details </a>
+    </td>
+
+    </tr>
+    <%end%>
+  </tbody>
+ </table>
