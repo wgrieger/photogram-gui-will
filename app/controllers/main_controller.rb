@@ -38,4 +38,16 @@ class MainController <ApplicationController
 
   end
 
+  def delete_img
+    image=params.fetch("id")
+    
+    find_image= Photo.where(:id=> image).first
+    find_image.destroy
+  
+
+    find_image.save
+
+  render({:template=>"list_photos"})
+  end
+
 end 
