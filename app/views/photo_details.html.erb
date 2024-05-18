@@ -30,3 +30,32 @@
   <a href="/photos/<%=@find_photo.id%>/delete_photo">Delete this photo </a>
 
 <h2> Comments </h2>
+
+<table>
+<tr>
+  <th>Commenter</th>
+  <th>Comment</th>
+  <th>Posted</th>
+
+  </tr> 
+
+  <%@comments.each do |comment|%>
+  <tr>
+    <td><%=comment.author_id%></td>
+    <td><%=comment.body%></td>
+    <td><%=comment.created_at%></td>
+  <%end%>
+</table>
+
+<h2> Add a new comment </h2>
+<form action="/photos/<%=@photo_id%>/new_comment" method="post">
+<label id="photoid">Photo ID</label>
+<input id="photoid" name="photoid" type="text" value="<%=@photo_id%>">
+
+<label id="authorid">Author ID</label>
+<input id="authorid" name="authorid" type="text" placeholder="Enter your author ID">
+
+<label id="comment">Comment</label>
+<textarea id="comment" name="comment" type="text" placeholder="Enter a comment..."></textarea>
+<button> Add comment</button>
+</form>

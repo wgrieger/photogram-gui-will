@@ -11,6 +11,9 @@ class MainController <ApplicationController
 
     @owner=User.where(:id=>@find_photo.owner_id).first
 
+    @comments=Comment.where(:photo_id=>@photo_id)
+
+
     render({:template => "photo_details"})
 
 
