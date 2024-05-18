@@ -53,4 +53,26 @@ class MainController <ApplicationController
   render({:template=>"list_photos"})
   end
 
+  def add_comment
+    @photo_id=params.fetch("id")
+    @new_comment=params.fetch("comment")
+    @author=params.fetch("authorid")
+
+    @find_photo=Photo.where(:id => @photo_id).first
+
+    @owner=User.where(:id=>@find_photo.owner_id).first
+
+    @comments=Comment.where(:photo_id=>@photo_id)
+
+
+    x=Comment.new
+    x.photo_id=@photo_id.to_i
+    x.body="@new_comment"
+    x.author_id=@author.to_i
+    x.save
+
+    redirect_to("https://effective-goldfish-v6p5479qjqq936qpv-3000.app.github.dev/photos/#{@photo_id}", { :allow_other_host => true })
+
+  end
+
 end 

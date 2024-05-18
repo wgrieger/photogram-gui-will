@@ -19,6 +19,6 @@ post("/photos/:id/update_photo", {:controller=> "main", :action => "photo_update
 
 get("/photos/:id/delete_photo", {:controller=> "main", :action => "delete_img"})
 
-
+post("/photos/:id/new_comment", {:controller=> "main", :action=> "add_comment"})
 
 end
