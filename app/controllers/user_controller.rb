@@ -27,16 +27,16 @@ class UserController <ApplicationController
 
 
   def update_user
-  username_old=params.fetch("username")
-  updated_username= params.fetch("update_username")
+  @username_old=params.fetch("usernameold")
+  @updated_username= params.fetch("update_username")
 
-  find_user= User.where(:username=> username_old).first
-  find_user.username=updated_username
+  find_user= User.where(:username=> @username_old).first
+  find_user.username=@updated_username
   find_user.save
 
   @user=find_user
 
-  render({:template=> "user_details"})
+  redirect_to("/users/#{@user.username}", { :allow_other_host => true })
 
   end
 end

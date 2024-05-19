@@ -53,6 +53,7 @@ class MainController <ApplicationController
     find_image.save
 
   redirect_to("/photos")
+  
   end
 
   def add_comment
@@ -69,25 +70,25 @@ class MainController <ApplicationController
 
     x=Comment.new
     x.photo_id=@photo_id.to_i
-    x.body="@new_comment"
+    x.body=@new_comment
     x.author_id=@author.to_i
     x.save
 
-    render({:template=>"photo_details"})
+    #render({:template=>"photo_details"})
 
-    #redirect_to("https://#effective-goldfish-v6p5479qjqq936qpv-3000.app.github.#dev/photos/#{@photo_id}", { :allow_other_host => true })
+    redirect_to("/photos/#{@photo_id}", { :allow_other_host => true })
 
   end
 
   def new_photo
-  image_url=params.fetch("imagesrc")
+  @image_url=params.fetch("imagesrc")
   @caption=params.fetch("caption")
-  owner=params.fetch("owner")
+  @owner=params.fetch("owner")
 
   x=Photo.new
-  x.image=image_url
+  x.image=@image_url
   x.caption=@caption
-  x.owner=owner
+  x.owner_id=@owner
   x.save
 
   @newphoto=Photo.where(:caption=> @caption).first
